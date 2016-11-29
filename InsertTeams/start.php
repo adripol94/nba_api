@@ -23,23 +23,21 @@ $db  = \BDConnection::getInstance();
 $db_connection = $db->getConnection();
 
 
-$query = "INSERT INTO Equipos(is_nba_team, team_name, team_nickname, team_code, team_abbrev, city, state, team_short_name, conference, division_id) VALUES (?,?,?,?,?,?,?,?,?,?)";
+$query = "INSERT INTO Equipos(active, team_name, first_name, last_name, abbreviation, city, state, conference, division) VALUES (?,?,?,?,?,?,?,?,?)";
 
 $prep_query = $db_connection->prepare($query);
 echo "Subiendo archivos...<br/>";
-$prep_query->bind_param('isssssssss', $nbaTeam, $teanName, $teamNick, $teamCode, $teamAbbrev,
-    $city, $state, $teamShort, $conference, $division);
+$prep_query->bind_param('issssssss', $active, $teanName, $team_name, $first_name, $last_name,
+    $abbreviation, $city, $state, $conference, $division);
 foreach ($array as $item) {
-    $nbaTeam = $item->getIsNbaTeam();
+     $active = $item->getActive();
     $teanName = $item->getTeamName();
-    $teamNick = $item->getTeamNickname();
-    $teamCode = $item->getTeamCode();
-    $teamAbbrev = $item->getTeamAbbrev();
+    $last_name = $item->getLastName();
+    $abbreviation = $item->getAbbreviation();
     $city = $item->getCity();
     $state = $item->getState();
-    $teamShort = $item->getTeamShortName();
     $conference = $item->getConference();
-    $division = $item->getDivisionId();
+    $division = $item->getDivision();
     $prep_query->execute();
 }
 

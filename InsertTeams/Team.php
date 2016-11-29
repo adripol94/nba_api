@@ -9,42 +9,54 @@ namespace Model;
  */
 class Team
 {
-    private $is_nba_team;
+    private $team_id;
+    private $active;
     private $team_name;
-    private $team_nickname;
-    private $team_code;
-    private $team_abbrev;
+    private $first_name;
+    private $last_name;
+    private $abbreviation;
     private $city;
     private $state;
-    private $team_short_name;
-    private $team_id;
     private $conference;
-    private $division_id;
+    private $division;
 
     /**
      * Team constructor.
      */
     public function __construct()
     {
-
-
     }
-
 
     /**
      * @return mixed
      */
-    public function getIsNbaTeam()
+    public function getTeamId()
     {
-        return $this->is_nba_team;
+        return $this->team_id;
     }
 
     /**
-     * @param mixed $is_nba_team
+     * @param mixed $team_id
      */
-    public function setIsNbaTeam($is_nba_team)
+    public function setTeamId($team_id)
     {
-        $this->is_nba_team = $is_nba_team;
+        $this->team_id = $team_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param mixed $active
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
     }
 
     /**
@@ -66,49 +78,49 @@ class Team
     /**
      * @return mixed
      */
-    public function getTeamNickname()
+    public function getFirstName()
     {
-        return $this->team_nickname;
+        return $this->first_name;
     }
 
     /**
-     * @param mixed $team_nickname
+     * @param mixed $first_name
      */
-    public function setTeamNickname($team_nickname)
+    public function setFirstName($first_name)
     {
-        $this->team_nickname = $team_nickname;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTeamCode()
-    {
-        return $this->team_code;
-    }
-
-    /**
-     * @param mixed $team_code
-     */
-    public function setTeamCode($team_code)
-    {
-        $this->team_code = $team_code;
+        $this->first_name = $first_name;
     }
 
     /**
      * @return mixed
      */
-    public function getTeamAbbrev()
+    public function getLastName()
     {
-        return $this->team_abbrev;
+        return $this->last_name;
     }
 
     /**
-     * @param mixed $team_abbrev
+     * @param mixed $last_name
      */
-    public function setTeamAbbrev($team_abbrev)
+    public function setLastName($last_name)
     {
-        $this->team_abbrev = $team_abbrev;
+        $this->last_name = $last_name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAbbreviation()
+    {
+        return $this->abbreviation;
+    }
+
+    /**
+     * @param mixed $abbreviation
+     */
+    public function setAbbreviation($abbreviation)
+    {
+        $this->abbreviation = $abbreviation;
     }
 
     /**
@@ -146,38 +158,6 @@ class Team
     /**
      * @return mixed
      */
-    public function getTeamShortName()
-    {
-        return $this->team_short_name;
-    }
-
-    /**
-     * @param mixed $team_short_name
-     */
-    public function setTeamShortName($team_short_name)
-    {
-        $this->team_short_name = $team_short_name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTeamId()
-    {
-        return $this->team_id;
-    }
-
-    /**
-     * @param mixed $team_id
-     */
-    public function setTeamId($team_id)
-    {
-        $this->team_id = $team_id;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getConference()
     {
         return $this->conference;
@@ -194,18 +174,20 @@ class Team
     /**
      * @return mixed
      */
-    public function getDivisionId()
+    public function getDivision()
     {
-        return $this->division_id;
+        return $this->division;
     }
 
     /**
-     * @param mixed $division_id
+     * @param mixed $division
      */
-    public function setDivisionId($division_id)
+    public function setDivision($division)
     {
-        $this->division_id = $division_id;
+        $this->division = $division;
     }
+
+
 
 
 

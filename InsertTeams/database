@@ -1,15 +1,16 @@
 CREATE DATABASE IF NOT EXISTS nba_;
 USE nba_;
+DROP TABLE Equipos;
 CREATE TABLE Equipos(
-  is_nba_team BOOL NOT NULL ,
-  team_name VARCHAR(30) NOT NULL ,
-  team_nickname VARCHAR(30) NOT NULL ,
-  team_code VARCHAR(30) NOT NULL,
-  team_abbrev VARCHAR(5) NOT NULL ,
-  city VARCHAR(20) NOT NULL ,
-  state VARCHAR(4) NOT NULL,
-  team_short_name  VARCHAR(20) NOT NULL ,
   team_id INT AUTO_INCREMENT NOT NULL ,
+  active BOOL NOT NULL ,
+  team_name VARCHAR(30) NOT NULL ,
+  first_name VARCHAR(30) NOT NULL ,
+  last_name VARCHAR(30) NOT NULL,
+  abbreviation VARCHAR(5) NOT NULL ,
+  city VARCHAR(20) NOT NULL ,
+  site_name VARCHAR(4) NOT NULL,
+  team_short_name  VARCHAR(20) NOT NULL ,
   conference VARCHAR(15) NOT NULL ,
   division_id VARCHAR(30) NOT NULL,
   CONSTRAINT EquipoID PRIMARY KEY (team_id)

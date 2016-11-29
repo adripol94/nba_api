@@ -26,17 +26,15 @@ class JSONReader
             $team = $teams["teams"];
 
             foreach ($team["team"] as $item) {
-                $e->setIsNbaTeam($item["is_nba_team"]);
-                $e->setTeamName($item["team_name"]);
-                $e->setTeamNickname($item["team_nickname"]);
-                $e->setTeamCode($item["team_code"]);
-                $e->setTeamAbbrev($item["team_abbrev"]);
+                $e->setActive($item["active"]);
+                $e->setAbbreviation($item["abbreviation"]);
+                $e->setFirstName($item["first_name"]);
+                $e->setConference($item["conference"]);
+                $e->setDivision($item["division"]);
                 $e->setCity($item["city"]);
                 $e->setState($item["state"]);
-                $e->setTeamShortName($item["team_short_name"]);
-                $e->setTeamId($item["team_id"]);
-                $e->setConference($item["conference"]);
-                $e->setDivisionId($item["division_id"]);
+                $e->setTeamName($item["full_name"]);
+                $e->setLastName($item["last_name"]);
                 $equiposArray[$i] = $e;
                 $e = new Team();
                 $i++;
