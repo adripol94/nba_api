@@ -36,4 +36,17 @@ class TeamController extends Controller
         $response = new Response($code, null, $listaTeam, $request->getAccept());
         $response->generate();
     }
+
+    public function managePostVerb(Request $request)
+    {
+
+        $team = new Team(
+            $request->getBodyParameters() // Parametros
+
+
+
+        );
+
+        parent::managePostVerb($request);
+    }
 }

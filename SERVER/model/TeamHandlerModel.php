@@ -75,7 +75,21 @@ class TeamHandlerModel
         return $respuesta;
     }
 
-    public static function isValid($id) {
+    public static function postTeam(Team $team)
+    {
+        $db = DatabaseModel::getInstance();
+        $db_connection = $db->getConnection();
+
+        $query = "INSERT INTO Equipos(active, team_name, first_name, last_name, abbreviation, city, site_name, conference, division_id) VALUES (?,?,?,?,?,?,?,?,?)";
+
+        $prepare = $db_connection->prepare($query);
+
+        //TODO Terminar!
+        $prepare->bind_param('issssssss', $team->getActive());
+
+
+    }
+        public static function isValid($id) {
         $res = false;
 
         if(ctype_digit($id)) {

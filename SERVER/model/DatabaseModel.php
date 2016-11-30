@@ -6,6 +6,8 @@
  * Date: 18/11/16
  * Time: 8:40
  */
+
+
 class DatabaseModel
 {
     private $_connection;

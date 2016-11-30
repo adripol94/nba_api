@@ -19,7 +19,7 @@ class ConsTeam
     const ACTIVE = 'active';
     const CITY = 'city';
     const ABREBIATION = 'abbreviation';
-    const STATE = 'state';
-    const DIVISION = 'division';
+    const STATE = 'site_name';
+    const DIVISION = 'division_id';
     const CONFERENCE = 'conference';
 }
