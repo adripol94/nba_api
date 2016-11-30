@@ -63,10 +63,16 @@ class TeamHandlerModel
                 //Añadir al array
                 $ListaTeams[] = $team;
             }
+
+            if (sizeof($ListaTeams)<=1) {
+                $respuesta = $team;
+            } else {
+                $respuesta = $ListaTeams;
+            }
         }
 
         $db_connection->close();
-        return $ListaTeams;
+        return $respuesta;
     }
 
     public static function isValid($id) {
