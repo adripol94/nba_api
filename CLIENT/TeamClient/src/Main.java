@@ -1,18 +1,16 @@
-import java.io.IOException;
 import java.util.List;
-
-import com.google.gson.Gson;
+import java.util.concurrent.TimeUnit;
 
 import Model.Team;
 import Model.TeamArrayInterface;
 import Model.TeamCallback;
+import Model.TeamCallbackArray;
 import Model.TeamInterface;
-import okio.*;
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+//http://www.androidtutorialpoint.com/networking/retrofit-android-tutorial/
 
 public class Main {
 
@@ -23,36 +21,40 @@ public class Main {
                 .baseUrl(SERVER_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
- 
-        TeamArrayInterface service = retrofit.create(TeamArrayInterface.class);
- 
-        Call<List<Team>> call = service.getTeam();
- 
+		
+		//Obtener Array
+		System.out.println("OBTENER UN ARRAY:");
+		get(retrofit);
+		
+		//Necesario para apreciar el resultado!
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} 
+		
+		//Obtener 1 objeto
+		System.out.println("OBTENER 1 OBJETO:");
+		get(1, retrofit);
+		
+		//IMPORTANT!: a la hora de obtener un objeto la sentencia tarda tiempo en ejecutarse
+		// por eso es necesaria dejarla al final para que se aprecie el resultado.
         
-        call.enqueue(new Callback<List<Team>>() {
-
-			@Override
-			public void onFailure(Call<List<Team>> arg0, Throwable arg1) {
-				System.out.println(arg1.getMessage());
-			}
-
-			@Override
-			public void onResponse(Call<List<Team>> arg0, Response<List<Team>> resp) {
-				 try {
-					 
-	                    List<Team> teams = resp.body();
-	 
-	                    for (int i = 0; i < teams.size(); i++) {
-	                    	System.out.println(teams.get(i));
-	                       
-	                    }
-	 
-	 
-	                } catch (Exception e) {
-	                    e.printStackTrace();
-	                }
-				
-			}
-		});
 	}
+	
+	private static void get(int id, Retrofit r) {
+		TeamInterface interfaz = r.create(TeamInterface.class);
+		TeamCallback callback = new TeamCallback();
+		Call<Team> call = interfaz.getTeam(id);
+		call.enqueue(callback);
+	}
+	
+	private static void get(Retrofit r) {
+		TeamArrayInterface interfaz = r.create(TeamArrayInterface.class);
+		TeamCallbackArray callback = new TeamCallbackArray();
+        Call<List<Team>> call = interfaz.getTeam();
+        call.enqueue(callback);
+	}
+	
+	
 }
