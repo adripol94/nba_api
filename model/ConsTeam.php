@@ -11,11 +11,15 @@ namespace ConsTeamDB;
 
 class ConsTeam
 {
-    const TABLE_NAME = 'Team';
-    const COD = 'codigo';
-    const FULL_NAME = 'full_name';
+    const TABLE_NAME = 'Equipos';
+    const COD = 'team_id';
+    const TEAM_NAME = 'team_name';
+    const FIRST_NAME = 'first_name';
+    const LAST_NAME = 'last_name';
+    const ACTIVE = 'active';
     const CITY = 'city';
-    const ABREBIATION = 'abrebiation';
+    const ABREBIATION = 'abbreviation';
     const STATE = 'state';
     const DIVISION = 'division';
+    const CONFERENCE = 'conference';
 }

@@ -8,46 +8,139 @@
  */
 class Team implements JsonSerializable
 {
-    private $codigo;
-    private $full_name;
+    private $team_id;
+    private $team_name;
+    private $first_name;
+    private $last_name;
+    private $active;
     private $city;
-    private $abrebiacion;
+    private $abbreviation;
     private $state;
     private $division;
+    private $conference;
 
-    function __construct($codigo, $name, $city, $abrebiacion, $state, $division)
+    /**
+     * Team constructor.
+     * @param $team_id
+     * @param $team_name
+     * @param $first_name
+     * @param $last_name
+     * @param $active
+     * @param $city
+     * @param $abbreviation
+     * @param $state
+     * @param $division
+     * @param $conference
+     */
+    public function __construct($team_id, $team_name, $first_name, $last_name, $active, $city, $abbreviation, $state, $division, $conference)
     {
-        $this->codigo = $codigo;
-        $this->full_name = $name;
+        $this->team_id = $team_id;
+        $this->team_name = $team_name;
+        $this->first_name = $first_name;
+        $this->last_name = $last_name;
+        $this->active = $active;
         $this->city = $city;
-        $this->abrebiacion = $abrebiacion;
+        $this->abbreviation = $abbreviation;
         $this->state = $state;
         $this->division = $division;
+        $this->conference = $conference;
     }
 
     function jsonSerialize()
     {
         return array(
-            'codigo' => $this->codigo,
-            'full_name' => $this->full_name,
-            'city' => $this->city,
-            'abrebiacon' => $this->abrebiacion,
-            'state' => $this->state,
-            'division' => $this->division
+             'team_id' => $this->team_id,
+            'team_name' => $this->team_name,
+        'first_name' => $this->first_name,
+        'last_name' => $this->last_name,
+        'active' => $this->active,
+        'city' => $this->city,
+        'abbreviation' => $this->abbreviation,
+        'state' => $this->state,
+        'division' => $this->division,
+        'conference' => $this->conference
         );
     }
 
-    function __sleep()
+
+    /**
+     * @return mixed
+     */
+    public function getTeamId()
     {
-        return array('codigo', 'full_name', 'city', 'abrebiacion', 'state', 'division');
+        return $this->team_id;
+    }
+
+    /**
+     * @param mixed $team_id
+     */
+    public function setTeamId($team_id)
+    {
+        $this->team_id = $team_id;
     }
 
     /**
      * @return mixed
      */
-    public function getFullName()
+    public function getTeamName()
     {
-        return $this->full_name;
+        return $this->team_name;
+    }
+
+    /**
+     * @param mixed $team_name
+     */
+    public function setTeamName($team_name)
+    {
+        $this->team_name = $team_name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFirstName()
+    {
+        return $this->first_name;
+    }
+
+    /**
+     * @param mixed $first_name
+     */
+    public function setFirstName($first_name)
+    {
+        $this->first_name = $first_name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastName()
+    {
+        return $this->last_name;
+    }
+
+    /**
+     * @param mixed $last_name
+     */
+    public function setLastName($last_name)
+    {
+        $this->last_name = $last_name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param mixed $active
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
     }
 
     /**
@@ -59,11 +152,27 @@ class Team implements JsonSerializable
     }
 
     /**
+     * @param mixed $city
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+
+    /**
      * @return mixed
      */
-    public function getAbrebiacion()
+    public function getAbbreviation()
     {
-        return $this->abrebiacion;
+        return $this->abbreviation;
+    }
+
+    /**
+     * @param mixed $abbreviation
+     */
+    public function setAbbreviation($abbreviation)
+    {
+        $this->abbreviation = $abbreviation;
     }
 
     /**
@@ -75,6 +184,14 @@ class Team implements JsonSerializable
     }
 
     /**
+     * @param mixed $state
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+    }
+
+    /**
      * @return mixed
      */
     public function getDivision()
@@ -82,6 +199,29 @@ class Team implements JsonSerializable
         return $this->division;
     }
 
+    /**
+     * @param mixed $division
+     */
+    public function setDivision($division)
+    {
+        $this->division = $division;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConference()
+    {
+        return $this->conference;
+    }
+
+    /**
+     * @param mixed $conference
+     */
+    public function setConference($conference)
+    {
+        $this->conference = $conference;
+    }
 
 
 
